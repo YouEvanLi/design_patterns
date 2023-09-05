@@ -18,3 +18,12 @@ func GetSportsFactory(brand string) (ISportsFactory, error) {
 
 	return nil, fmt.Errorf("Wrong brand type passed")
 }
+
+func main() {
+
+	adidasFactory, _ := GetSportsFactory("adidas")
+
+	adidasShoe := adidasFactory.makeShoe()
+	adidasShirt := adidasFactory.makeShirt()
+
+}
