@@ -1,4 +1,4 @@
-package main
+package abstractfactory
 
 // 抽象产品，产品具有某些属性
 type IShirt interface {

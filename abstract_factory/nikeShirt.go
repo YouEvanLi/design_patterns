@@ -1,4 +1,4 @@
-package main
+package abstractfactory
 
 type NikeShirt struct {
 	Shirt

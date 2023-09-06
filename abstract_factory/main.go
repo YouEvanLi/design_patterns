@@ -1,6 +1,8 @@
-package main
+package abstractfactory
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	adidasFactory, _ := GetSportsFactory("adidas")
