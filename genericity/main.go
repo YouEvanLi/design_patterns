@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"strings"
 )
 
 // 切片定义泛型
@@ -18,6 +19,19 @@ type Test2[T int | string | float32] struct {
 }
 
 func main() {
+	strs := []string{"Hao", "Chen", "MegaEase"}
+	upstrs := gMap(strs, func(s string) string  {
+		return strings.ToUpper(s)
+	})
+	fmt.Println(upstrs)
+	nums := []int {0,1,2,3,4,5,6,7,8,9}
+	dict := []string{"零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖"}
+	strs =  gMap(nums, func (elem int) string  {
+		return  dict[elem]
+	})
+	fmt.Println(dict)
+
+
 
 	var f Tree[int]
 	f.cmp = test1
@@ -37,6 +51,22 @@ func main() {
 	fmt.Println(q.elements)
 
 	fmt.Println(q.Size())
+}
+
+
+func gFilter[T any] (arr []T, in bool, f func(T) bool) []T {
+	result := []T{}
+	
+}
+
+
+func gMap[T1 any , T2 any] (arr []T1, f func(T1) T2) []T2 {
+	result := make([]T2, len(arr))
+
+	for i , elem := range arr {
+		result[i] = f(elem)
+	}
+	return result
 }
 
 type Queue[T any] struct {
